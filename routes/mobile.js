@@ -34,6 +34,11 @@ router.get('/task',function (req,res) {
     })
 })
 
+router.post('/',function (req,res) {
+    console.log(req.body);
+    res.send("OK")
+})
+
 
 
 
