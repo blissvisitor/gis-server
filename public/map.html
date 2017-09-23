@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/ol.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mycss.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">中国地质大学校园数字管网系统</a>
+
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div id="map" class="full">
+
+    </div>
+</div>
+<div id="control_panel" v-bind:style="{left:left+'px'}">
+
+    <!-- 工具条-->
+    <div id="btn_group1" class="btn-group-vertical">
+        <button v-on:click="click1" id="btn_layers" type="button" class="btn btn-sm " data-toggle="tooltip" data-placement="right" title="layers" >
+            <span class="glyphicon glyphicon-align-justify btn-logo"></span>
+        </button>
+        <button id="btn_property" type="button" class=" btn btn-sm " data-toggle="tooltip" data-placement="right" title="property" >
+            <span class="glyphicon glyphicon-list-alt btn-logo"></span>
+        </button>
+        <button id="btn_spatial" type="button" class="btn btn-sm " data-toggle="tooltip" data-placement="right" title="spatial" >
+            <span class="glyphicon glyphicon-search btn-logo"></span>
+        </button>
+        <button id="btn_edit" type="button" class="btn btn-sm " data-toggle="tooltip" data-placement="right" title="edit" >
+            <span class="glyphicon glyphicon-pencil btn-logo"></span>
+        </button>
+        <button id="btn_task"type="button" class="btn  btn-sm " data-toggle="tooltip" data-placement="right" title="task" >
+            <span class="glyphicon glyphicon-flag btn-logo"></span>
+        </button>
+        <button id="btn_picture"type="button" class="btn  btn-sm " data-toggle="tooltip" data-placement="right" title="pictures" >
+            <span class="glyphicon glyphicon-picture btn-logo"></span>
+        </button>
+        <button v-on:click="close" type="button" class="btn  btn-sm " data-toggle="tooltip" data-placement="right" title="关闭" >
+            <span class="glyphicon  glyphicon-remove btn-logo"></span>
+        </button>
+    </div>
+</div>
+<div id="control" v-bind:style="{display:display}">
+    <div id="layers">
+        <layer-item></layer-item>
+    </div>
+
+</div>
+
+</body>
+<script src="lib/ol-debug.js"></script>
+<script src="lib/vue.js"></script>
+<script src="src/map.js"></script>
+</html>
