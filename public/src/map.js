@@ -31,6 +31,32 @@ var controlDisplay = {
     display:'none',
 }
 
+Vue.component('layer-item',{
+    template:'\
+    <li class="list-group-item">\
+        {{name}}\
+        <input type="checkbox" v-model="visible" />\
+    </li>',
+    data:function () {
+        var layer = mapObj.layers[0];
+        console.log('初始化');
+        var obj ={
+            name :  layer.get('name'),
+            /*  visible:layer.getVisible() //? 'checked':''*/
+            visible:layer.getVisible(),
+            layer:layer
+        }
+        return obj;
+    },
+    watch:{
+        visible:function () {
+            this.layer.setVisible(this.visible);
+
+        }
+    }
+})
+
+
 var control = new Vue({
     el:"#control",
     data:controlDisplay
@@ -56,25 +82,11 @@ var controlPanel = new Vue({
         left:0
     }
 });
-Vue.component('layer-item',{
-    template:'\
-    <li>\
-        {{name}}\
-        <input type="checkbox" v-model="visible" v-on:change:/>\
-    </li>',
-    data:function () {
-        var layer = mapObj.layers[0];
-        var obj ={
-            name :  layer.get('name'),
-            visible:layer.getVisible() //? 'checked':''
 
-        }
-        return obj;
-    }
-})
-
+/*
 var layersControl = new Vue({
     el:"#layers",
 })
+*/
 
 
